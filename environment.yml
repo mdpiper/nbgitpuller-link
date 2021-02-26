@@ -1,0 +1,24 @@
+# An environment to develop, build, test, and document nbgitpuller-link
+name: link
+channels:
+  - conda-forge
+dependencies:
+  - python =3
+  - pip
+  - requests
+  - click
+  - pyyaml
+  - make
+  - black
+  - flake8
+  - isort >=5
+  - pytest
+  - pytest-cov
+  - pytest-datadir
+  - coveralls
+  - sphinx
+  - recommonmark
+  - pandoc
+  - notebook
+  - pip:
+    - zest.releaser

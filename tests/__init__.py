@@ -1,0 +1,5 @@
+"""Define helper constants for testing"""
+HUB = "https://csdms.rc.colorado.edu"
+REPO = "https://github.com/csdms/espin"
+BRANCH = "main"
+FILE = "lessons/jupyter/index.ipynb"

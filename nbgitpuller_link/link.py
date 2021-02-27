@@ -1,7 +1,6 @@
 """Base class to create an nbgitpuller link"""
 import urllib
 import validators
-from pathlib import Path
 
 
 class Link:
@@ -12,17 +11,12 @@ class Link:
         self, jupyterhub_url, repository_url, branch=None, launch_path=None
     ):
 
-        # self._jupyterhub = urllib.parse.urlsplit(jupyterhub_url)
         self._jupyterhub = self._validate_link(jupyterhub_url)
         self._repository = self._validate_link(repository_url)
         self._branch = branch or "main"
         self._launch = launch_path or ""
 
         self._generate_link()
-
-        # valid = validators.url(self.link)
-        # if not valid:
-        #     raise ValueError("Invalid link: {}".format(valid))
 
     @property
     def link(self):

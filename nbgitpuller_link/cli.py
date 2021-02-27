@@ -6,25 +6,29 @@ from .link import Link
 
 @click.command()
 @click.version_option()
-@click.option("-q", "--quiet", is_flag=True, help="Enables quiet mode.")
 @click.option(
     "--jupyterhub-url",
-    help="JupyterHub target for link.",
+    help="Target JupyterHub for link.",
+    required=True,
 )
 @click.option(
     "--repository-url",
     help="Source repository for link.",
+    required=True,
 )
 @click.option(
     "--branch",
     help="Branch to use from source repository.",
+    default="main",
+    show_default=True,
 )
 @click.option(
     "--launch-path",
-    help="File or directory from source repository to launch on target JupyterHub",
+    help="Relative path to file or directory in source repository to launch on target JupyterHub",
+    default="",
+    show_default=True,
 )
-def main(jupyterhub_url, repository_url, branch, launch_path, quiet):
-    """Generate an nbgitpuller link for a JupyterHub"""
+def main(jupyterhub_url, repository_url, branch, launch_path):
+    """Generate an nbgitpuller link to load a repository on a JupyterHub"""
     linker = Link(jupyterhub_url, repository_url, branch, launch_path)
-    if not quiet:
-        click.secho(linker.link, fg="green")
+    click.secho(linker.link, fg="green")

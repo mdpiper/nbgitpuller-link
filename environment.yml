@@ -5,9 +5,8 @@ channels:
 dependencies:
   - python =3
   - pip
-  - requests
   - click
-  - pyyaml
+  - validators
   - make
   - black
   - flake8

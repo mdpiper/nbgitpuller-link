@@ -16,31 +16,33 @@ class Link:
         self._branch = branch or "main"
         self._launch = launch_path or ""
 
+        self._generate_link()
+
+    @property
+    def link(self):
+        return self._link
+
+    def _generate_query(self):
         repo_name = urllib.parse.urlsplit(self._repository).path.split("/")[-1]
         urlpath = "tree/{0}/{1}".format(repo_name, self._launch)
 
-        self._scheme = self._jupyterhub.scheme
-        self._netloc = self._jupyterhub.netloc
-        self._path = "hub/user-redirect/git-pull"
-        self._query = urllib.parse.urlencode(
+        query = urllib.parse.urlencode(
             {
                 "repo": self._repository,
                 "urlpath": urlpath,
                 "branch": self._branch,
             }
         )
-        self._fragment = ""
 
+        return query
+
+    def _generate_link(self):
         self._link = urllib.parse.urlunsplit(
             (
-                self._scheme,
-                self._netloc,
-                self._path,
-                self._query,
-                self._fragment,
+                self._jupyterhub.scheme,
+                self._jupyterhub.netloc,
+                "hub/user-redirect/git-pull",
+                self._generate_query(),
+                "",
             )
         )
-
-    @property
-    def link(self):
-        return self._link

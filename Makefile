@@ -59,7 +59,7 @@ pretty: ## reformat files to make them look pretty
 	black nbgitpuller_link tests docs
 
 test: ## run tests quickly with the default Python
-	pytest --disable-warnings --cov=nbgitpuller_link --cov-report=xml:./coverage.xml -vvv
+	pytest --disable-warnings -vvv
 
 coverage: ## check code coverage quickly with the default Python
 	pytest --cov --cov-report=html

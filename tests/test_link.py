@@ -3,7 +3,8 @@ import pytest
 import validators
 
 from nbgitpuller_link import Link
-from . import HUB, REPO, BRANCH, FILE
+
+from . import BRANCH, FILE, HUB, REPO
 
 
 def test_invalid_jupyterhub_url():
@@ -32,5 +33,7 @@ def test_launch_path():
 
 
 def test_all_arguments():
-    link = Link(jupyterhub_url=HUB, repository_url=REPO, branch=BRANCH, launch_path=FILE)
+    link = Link(
+        jupyterhub_url=HUB, repository_url=REPO, branch=BRANCH, launch_path=FILE
+    )
     assert validators.url(link.link)

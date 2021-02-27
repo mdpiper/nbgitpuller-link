@@ -3,7 +3,8 @@ import validators
 from click.testing import CliRunner
 
 from nbgitpuller_link.cli import main
-from . import HUB, REPO, BRANCH
+
+from . import BRANCH, HUB, REPO
 
 
 def test_help():
@@ -43,30 +44,53 @@ def test_fail_without_repository_option():
 
 def test_with_required_options():
     runner = CliRunner()
-    result = runner.invoke(main, ["--jupyterhub-url={}".format(HUB), "--repository-url={}".format(REPO)])
+    result = runner.invoke(
+        main, ["--jupyterhub-url={}".format(HUB), "--repository-url={}".format(REPO)]
+    )
     assert result.exit_code == 0
 
 
 def test_optional_branch():
     runner = CliRunner()
-    result1 = runner.invoke(main, ["--jupyterhub-url={}".format(HUB), "--repository-url={}".format(REPO), "--branch={}".format(BRANCH)])
+    result1 = runner.invoke(
+        main,
+        [
+            "--jupyterhub-url={}".format(HUB),
+            "--repository-url={}".format(REPO),
+            "--branch={}".format(BRANCH),
+        ],
+    )
     assert result1.exit_code == 0
-    result2 = runner.invoke(main, ["--jupyterhub-url={}".format(HUB), "--repository-url={}".format(REPO)])
+    result2 = runner.invoke(
+        main, ["--jupyterhub-url={}".format(HUB), "--repository-url={}".format(REPO)]
+    )
     assert result2.exit_code == 0
     assert result1.output == result2.output
 
 
 def test_optional_launch_path():
     runner = CliRunner()
-    result1 = runner.invoke(main, ["--jupyterhub-url={}".format(HUB), "--repository-url={}".format(REPO), "--launch-path="])
+    result1 = runner.invoke(
+        main,
+        [
+            "--jupyterhub-url={}".format(HUB),
+            "--repository-url={}".format(REPO),
+            "--launch-path=",
+        ],
+    )
     assert result1.exit_code == 0
-    result2 = runner.invoke(main, ["--jupyterhub-url={}".format(HUB), "--repository-url={}".format(REPO)])
+    result2 = runner.invoke(
+        main, ["--jupyterhub-url={}".format(HUB), "--repository-url={}".format(REPO)]
+    )
     assert result2.exit_code == 0
     assert result1.output == result2.output
 
 
 def test_valid_result():
     runner = CliRunner()
-    result = runner.invoke(main, ["--jupyterhub-url=https://jupyter.org", "--repository-url=https://github.com"])
+    result = runner.invoke(
+        main,
+        ["--jupyterhub-url=https://jupyter.org", "--repository-url=https://github.com"],
+    )
     assert result.exit_code == 0
     assert validators.url(result.output)

@@ -1,3 +1,5 @@
+[![Build/Test CI](https://github.com/mdpiper/nbgitpuller-link/actions/workflows/build-test-ci.yml/badge.svg)](https://github.com/mdpiper/nbgitpuller-link/actions/workflows/build-test-ci.yml)
+
 # nbgitpuller-link
 
 Generate an [nbgitpuller](https://jupyterhub.github.io/nbgitpuller/index.html) link

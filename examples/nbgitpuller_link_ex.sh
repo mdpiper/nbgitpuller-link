@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# Example of constructing a link throug the nbgitpuller CLI.
+# Example of constructing a link through the nbgitpuller CLI.
 
 HUB=https://csdms.rc.colorado.edu
 REPO=https://github.com/csdms/espin

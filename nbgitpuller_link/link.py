@@ -8,12 +8,20 @@ class Link:
 
     """Generate an nbgitpuller link."""
 
-    def __init__(self, jupyterhub_url, repository_url, branch=None, launch_path=None):
+    def __init__(
+        self,
+        jupyterhub_url,
+        repository_url,
+        branch=None,
+        launch_path=None,
+        interface=None,
+    ):
 
         self._jupyterhub = self._validate_link(jupyterhub_url)
         self._repository = self._validate_link(repository_url)
         self._branch = branch or "main"
         self._launch = launch_path or ""
+        self._interface = interface or "notebook"
 
         self._generate_link()
 
@@ -21,9 +29,19 @@ class Link:
     def link(self):
         return self._validate_link(self._link)
 
-    def _generate_query(self):
+    def _generate_urlpath(self):
         repo_name = urllib.parse.urlsplit(self._repository).path.split("/")[-1]
-        urlpath = "tree/{0}/{1}".format(repo_name, self._launch)
+        if self._interface.lower() == "lab":
+            urlpath = "lab/tree/{0}/{1}{2}".format(
+                repo_name, self._launch, "?autodecode"
+            )
+        else:
+            urlpath = "tree/{0}/{1}".format(repo_name, self._launch)
+
+        return urlpath
+
+    def _generate_query(self):
+        urlpath = self._generate_urlpath()
 
         query = urllib.parse.urlencode(
             {

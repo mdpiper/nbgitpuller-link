@@ -23,7 +23,7 @@ pip install .
 
 ## Examples
 
-The *nbgitpuller-link* package comes with a CLI and a Python API.
+The *nbgitpuller-link* package includes a CLI and a Python API.
 The repository holds short [examples](https://github.com/mdpiper/nbgitpuller-link/tree/main/examples)
 of both, which are adapted here.
 
@@ -38,13 +38,17 @@ Usage: nbgitpuller-link [OPTIONS]
   Generate an nbgitpuller link to load a repository on a JupyterHub
 
 Options:
-  --version              Show the version and exit.
-  --jupyterhub-url TEXT  Target JupyterHub for link.  [required]
-  --repository-url TEXT  Source repository for link.  [required]
-  --branch TEXT          Branch to use from source repository.  [default: main]
-  --launch-path TEXT     Relative path to file or directory in source
-                         repository to launch on target JupyterHub  [default: ]
-  --help                 Show this message and exit.
+  --version                   Show the version and exit.
+  --jupyterhub-url TEXT       Target JupyterHub for link.  [required]
+  --repository-url TEXT       Source repository for link.  [required]
+  --branch TEXT               Branch to use from source repository.  [default:
+                              main]
+  --launch-path TEXT          Relative path to file or directory in source
+                              repository to launch on target JupyterHub.
+                              [default: ]
+  --interface [notebook|lab]  Open with classic Jupyter Notebook interface or
+                              next-generation JupyterLab.  [default: notebook]
+  --help                      Show this message and exit.
 ``` 
 
 Generate a link to load a repository on a JupyterHub,
@@ -77,8 +81,10 @@ linker = Link(
     repository_url="https://github.com/csdms/espin",
     branch="main",
     launch_path="lessons/jupyter/index.ipynb",
+    interface="lab",
     )
 ```
+Note that this example uses the JupyterLab interface.
 
 The `link` property holds the URL:
 ```python
@@ -86,5 +92,5 @@ print("The nbgitpuller link is:\n{}".format(linker.link))
 ```
 ```
 The nbgitpuller link is:
-https://csdms.rc.colorado.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fcsdms%2Fespin&urlpath=tree%2Fespin%2Flessons%2Fjupyter%2Findex.ipynb&branch=main
+https://csdms.rc.colorado.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fcsdms%2Fespin&urlpath=lab%2Ftree%2Fespin%2Flessons%2Fjupyter%2Findex.ipynb%3Fautodecode&branch=main
 ```

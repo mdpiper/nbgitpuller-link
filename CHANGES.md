@@ -1,7 +1,7 @@
 Changes: nbgitpuller-link
 =========================
 
-0.2 (unreleased)
+0.2 (2021-03-04)
 ----------------
 
 * Add choice of classic Notebook or JupyterLab interface

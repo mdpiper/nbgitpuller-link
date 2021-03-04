@@ -1,4 +1,4 @@
-![PyPI](https://img.shields.io/pypi/v/nbgitpuller-link)
+[![PyPI](https://img.shields.io/pypi/v/nbgitpuller-link)](https://pypi.org/project/nbgitpuller-link/)
 [![Build/Test CI](https://github.com/mdpiper/nbgitpuller-link/actions/workflows/build-test-ci.yml/badge.svg)](https://github.com/mdpiper/nbgitpuller-link/actions/workflows/build-test-ci.yml)
 
 # nbgitpuller-link

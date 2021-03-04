@@ -4,7 +4,7 @@ from click.testing import CliRunner
 
 from nbgitpuller_link.cli import main
 
-from . import BRANCH, HUB, REPO
+from . import BRANCH, HUB, REPO, INTERFACE
 
 
 def test_help():
@@ -94,3 +94,41 @@ def test_valid_result():
     )
     assert result.exit_code == 0
     assert validators.url(result.output)
+
+
+def test_optional_interface():
+    runner = CliRunner()
+    result1 = runner.invoke(
+        main,
+        [
+            "--jupyterhub-url={}".format(HUB),
+            "--repository-url={}".format(REPO),
+            "--interface={}".format(INTERFACE),
+        ],
+    )
+    assert result1.exit_code == 0
+    result2 = runner.invoke(
+        main, ["--jupyterhub-url={}".format(HUB), "--repository-url={}".format(REPO)]
+    )
+    assert result2.exit_code == 0
+    assert result1.output == result2.output
+
+
+def test_lab_interface():
+    runner = CliRunner()
+    result = runner.invoke(
+        main,
+        ["--jupyterhub-url=https://jupyter.org", "--repository-url=https://github.com", "--interface=lab"],
+    )
+    assert result.exit_code == 0
+    assert "lab" in result.output
+
+
+def test_interface_is_case_insensitive():
+    runner = CliRunner()
+    result = runner.invoke(
+        main,
+        ["--jupyterhub-url=https://jupyter.org", "--repository-url=https://github.com", "--interface=NOTEBOOK"],
+    )
+    assert result.exit_code == 0
+    assert "tree" in result.output

@@ -4,7 +4,7 @@ import validators
 
 from nbgitpuller_link import Link
 
-from . import BRANCH, FILE, HUB, REPO
+from . import BRANCH, FILE, HUB, REPO, INTERFACE
 
 
 def test_invalid_jupyterhub_url():
@@ -32,8 +32,13 @@ def test_launch_path():
     assert validators.url(link.link)
 
 
+def test_interface():
+    link = Link(jupyterhub_url=HUB, repository_url=REPO, interface=INTERFACE)
+    assert validators.url(link.link)
+
+
 def test_all_arguments():
     link = Link(
-        jupyterhub_url=HUB, repository_url=REPO, branch=BRANCH, launch_path=FILE
+        jupyterhub_url=HUB, repository_url=REPO, branch=BRANCH, launch_path=FILE, interface=INTERFACE
     )
     assert validators.url(link.link)

@@ -4,7 +4,7 @@ from click.testing import CliRunner
 
 from nbgitpuller_link.cli import main
 
-from . import BRANCH, HUB, REPO, INTERFACE
+from . import BRANCH, HUB, INTERFACE, REPO
 
 
 def test_help():
@@ -118,7 +118,11 @@ def test_lab_interface():
     runner = CliRunner()
     result = runner.invoke(
         main,
-        ["--jupyterhub-url=https://jupyter.org", "--repository-url=https://github.com", "--interface=lab"],
+        [
+            "--jupyterhub-url=https://jupyter.org",
+            "--repository-url=https://github.com",
+            "--interface=lab",
+        ],
     )
     assert result.exit_code == 0
     assert "lab" in result.output
@@ -128,7 +132,11 @@ def test_interface_is_case_insensitive():
     runner = CliRunner()
     result = runner.invoke(
         main,
-        ["--jupyterhub-url=https://jupyter.org", "--repository-url=https://github.com", "--interface=NOTEBOOK"],
+        [
+            "--jupyterhub-url=https://jupyter.org",
+            "--repository-url=https://github.com",
+            "--interface=NOTEBOOK",
+        ],
     )
     assert result.exit_code == 0
     assert "tree" in result.output

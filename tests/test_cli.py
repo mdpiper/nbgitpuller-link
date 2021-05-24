@@ -150,7 +150,7 @@ def test_space_in_launch_path():
             "--jupyterhub-url={}".format(HUB),
             "--repository-url={}".format(REPO),
             "--branch={}".format(BRANCH),
-            "--launch-path=Final\ Version/Rainstorms_Hydrographs.ipynb",
+            "--launch-path=Final Version/Rainstorms_Hydrographs.ipynb",
         ],
     )
     assert result.exit_code == 0

@@ -140,3 +140,18 @@ def test_interface_is_case_insensitive():
     )
     assert result.exit_code == 0
     assert "tree" in result.output
+
+
+def test_space_in_launch_path():
+    runner = CliRunner()
+    result = runner.invoke(
+        main,
+        [
+            "--jupyterhub-url={}".format(HUB),
+            "--repository-url={}".format(REPO),
+            "--branch={}".format(BRANCH),
+            "--launch-path=Final\ Version/Rainstorms_Hydrographs.ipynb",
+        ],
+    )
+    assert result.exit_code == 0
+    assert validators.url(result.output)

@@ -5,6 +5,7 @@ Changes: nbgitpuller-link
 ----------------
 
 - Get DOI from Zenodo and add CITATION document
+- Use CITATION.cff instead of CITATION.md
 
 
 0.2 (2021-03-04)

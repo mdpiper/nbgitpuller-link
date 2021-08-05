@@ -1,3 +1,4 @@
+[![Conda Version](https://img.shields.io/conda/vn/conda-forge/nbgitpuller-link.svg)](https://anaconda.org/conda-forge/nbgitpuller-link)
 [![PyPI](https://img.shields.io/pypi/v/nbgitpuller-link)](https://pypi.org/project/nbgitpuller-link/)
 [![Build/Test CI](https://github.com/mdpiper/nbgitpuller-link/actions/workflows/build-test-ci.yml/badge.svg)](https://github.com/mdpiper/nbgitpuller-link/actions/workflows/build-test-ci.yml)
 
@@ -12,9 +13,12 @@ Install the latest stable release of *nbgitpuller-link* with `pip`:
 ```
 pip install nbgitpuller-link
 ```
+or with `conda`:
+```
+conda install nbgitpuller-link -c conda-forge
+```
 
-Or install from source:
-After cloning or downloading the *nbgitpuller-link* [repository](https://github.com/mdpiper/nbgitpuller-link),
+To install from source, after cloning or downloading the *nbgitpuller-link* [repository](https://github.com/mdpiper/nbgitpuller-link),
 change into the repository directory
 and install the package with `pip`:
 ```

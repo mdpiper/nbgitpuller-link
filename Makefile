@@ -52,11 +52,11 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint: ## check style with flake8
-	flake8 nbgitpuller_link tests
+	flake8 nbgitpuller_link examples tests
 
 pretty: ## reformat files to make them look pretty
-	find nbgitpuller_link tests docs -name '*.py' | xargs isort
-	black nbgitpuller_link tests docs
+	find nbgitpuller_link examples tests -name '*.py' | xargs isort
+	black nbgitpuller_link examples tests
 
 test: ## run tests quickly with the default Python
 	pytest --disable-warnings -vvv

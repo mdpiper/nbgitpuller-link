@@ -80,8 +80,7 @@ setup: ## generate a setup.py file for release tools
 	echo "setuptools.setup()" >> setup.py
 
 build: clean setup ## build and package a release
-	python setup.py sdist
-	python setup.py bdist_wheel
+	python -m build
 	ls -l dist
 
 testpypi: build ## upload a release to TestPyPI
@@ -97,4 +96,4 @@ fullrelease: clean setup ## generate a full release with zest.releaser
 	fullrelease
 
 install: clean ## install the package to the active Python's site-packages
-	pip install .
+	pip install -e .

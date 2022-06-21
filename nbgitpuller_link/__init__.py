@@ -1,6 +1,4 @@
-import pkg_resources
-
+from ._version import __version__
 from .link import Link
 
-__all__ = ["Link"]
-__version__ = pkg_resources.get_distribution("nbgitpuller_link").version
+__all__ = ["__version__", "Link"]

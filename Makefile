@@ -52,11 +52,11 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint: ## check style with flake8
-	flake8 nbgitpuller_link tests
+	flake8 nbgitpuller_link examples tests
 
 pretty: ## reformat files to make them look pretty
-	find nbgitpuller_link tests docs -name '*.py' | xargs isort
-	black nbgitpuller_link tests docs
+	find nbgitpuller_link examples tests -name '*.py' | xargs isort
+	black nbgitpuller_link examples tests
 
 test: ## run tests quickly with the default Python
 	pytest --disable-warnings -vvv
@@ -80,11 +80,11 @@ setup: ## generate a setup.py file for release tools
 	echo "setuptools.setup()" >> setup.py
 
 build: clean setup ## build and package a release
-	python setup.py sdist
-	python setup.py bdist_wheel
+	python -m build
 	ls -l dist
 
 testpypi: build ## upload a release to TestPyPI
+	twine check dist/*
 	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
 pypi: build ## upload a release to PyPI
@@ -97,4 +97,4 @@ fullrelease: clean setup ## generate a full release with zest.releaser
 	fullrelease
 
 install: clean ## install the package to the active Python's site-packages
-	pip install .
+	pip install -e .

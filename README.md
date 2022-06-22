@@ -22,7 +22,7 @@ To install from source, after cloning or downloading the *nbgitpuller-link* [rep
 change into the repository directory
 and install the package with `pip`:
 ```
-pip install .
+pip install -e .
 ```
 
 ## Examples

@@ -18,7 +18,7 @@ keywords = [
   "git",
   "nbgitpuller",
 ]
-license = {file = "LICENSE.md"}
+license = {text = "MIT License"}
 classifiers = [
   "Programming Language :: Python :: 3",
   "License :: OSI Approved :: MIT License",
@@ -55,7 +55,7 @@ testing = [
 nbgitpuller-link = "nbgitpuller_link.cli:main"
 
 [tool.setuptools.dynamic]
-readme = {file = ["README.md", "CHANGES.md", "CITATION.cff", "LICENSE.md"], content-type = "text/markdown"}
+readme = {file = ["README.md", "LICENSE.md"], content-type = "text/markdown"}
 version = {attr = "nbgitpuller_link._version.__version__"}
 
 [tool.setuptools.packages.find]

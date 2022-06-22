@@ -4,9 +4,8 @@ Changes: nbgitpuller-link
 0.3 (unreleased)
 ----------------
 
-- Get DOI from Zenodo and add CITATION document
-- Use CITATION.cff instead of CITATION.md
-- Add conda-forge badge
+- Get DOI from Zenodo and add CITATION.cff
+- Move metadata from setup.cfg to pyproject.toml (#8)
 
 
 0.2 (2021-03-04)

@@ -1,9 +1,66 @@
 [build-system]
-requires = [
-    "setuptools>=42",
-    "wheel"
-]
+requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "nbgitpuller-link"
+description = "Create an nbgitpuller link"
+authors = [
+  {name = "Mark Piper", email = "mark.piper@colorado.edu"},
+]
+maintainers = [
+  {name = "Mark Piper", email = "mark.piper@colorado.edu"},
+]
+keywords = [
+  "jupyter",
+  "jupyterhub",
+  "notebook",
+  "git",
+  "nbgitpuller",
+]
+license = {file = "LICENSE.md"}
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Education",
+]
+requires-python = ">=3.7"
+dependencies = [
+  "click",
+  "validators",
+]
+dynamic = ["readme", "version"]
+
+[project.urls]
+homepage = "https://github.com/mdpiper/nbgitpuller-link"
+documentation = "https://github.com/mdpiper/nbgitpuller-link#readme"
+repository = "https://github.com/mdpiper/nbgitpuller-link"
+changelog = "https://github.com/mdpiper/nbgitpuller-link/blob/main/CHANGES.md"
+
+[project.optional-dependencies]
+testing = [
+  "black",
+  "flake8",
+  "isort >=5",
+  "pytest",
+  "pytest-cov",
+  "pytest-datadir",
+  "coveralls",
+]
+
+[project.scripts]
+nbgitpuller-link = "nbgitpuller_link.cli:main"
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.md", "CHANGES.md", "CITATION.cff", "LICENSE.md"]}
+version = {attr = "nbgitpuller_link._version.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["nbgitpuller_link.tests*"]
 
 [tool.pytest.ini_options]
 minversion = "6.0"

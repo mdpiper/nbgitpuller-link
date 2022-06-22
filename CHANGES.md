@@ -1,8 +1,8 @@
 Changes: nbgitpuller-link
 =========================
 
-0.3 (unreleased)
-----------------
+0.2.1 (2022-06-22)
+------------------
 
 - Get DOI from Zenodo and add CITATION.cff
 - Move metadata from setup.cfg to pyproject.toml (#8)

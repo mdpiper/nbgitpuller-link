@@ -84,6 +84,7 @@ build: clean setup ## build and package a release
 	ls -l dist
 
 testpypi: build ## upload a release to TestPyPI
+	twine check dist/*
 	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
 pypi: build ## upload a release to PyPI

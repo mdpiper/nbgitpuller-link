@@ -35,10 +35,10 @@ dependencies = [
 dynamic = ["readme", "version"]
 
 [project.urls]
-homepage = "https://github.com/mdpiper/nbgitpuller-link"
-documentation = "https://github.com/mdpiper/nbgitpuller-link#readme"
-repository = "https://github.com/mdpiper/nbgitpuller-link"
-changelog = "https://github.com/mdpiper/nbgitpuller-link/blob/main/CHANGES.md"
+Homepage = "https://github.com/mdpiper/nbgitpuller-link"
+Documentation = "https://github.com/mdpiper/nbgitpuller-link#readme"
+Repository = "https://github.com/mdpiper/nbgitpuller-link"
+Changelog = "https://github.com/mdpiper/nbgitpuller-link/blob/main/CHANGES.md"
 
 [project.optional-dependencies]
 testing = [
@@ -60,7 +60,7 @@ version = {attr = "nbgitpuller_link._version.__version__"}
 
 [tool.setuptools.packages.find]
 where = ["."]
-exclude = ["nbgitpuller_link.tests*"]
+include = ["nbgitpuller_link*"]
 
 [tool.pytest.ini_options]
 minversion = "6.0"

@@ -1,0 +1,6 @@
+include *.md
+include *.cff
+include environment.yml
+include Makefile
+include examples/*
+include tests/*

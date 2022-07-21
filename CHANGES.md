@@ -4,7 +4,7 @@ Changes: nbgitpuller-link
 0.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Update contents of built distributions (#9)
 
 
 0.2.1 (2022-06-22)

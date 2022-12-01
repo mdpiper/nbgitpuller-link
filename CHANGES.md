@@ -1,6 +1,12 @@
 Changes: nbgitpuller-link
 =========================
 
+0.2.4 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
 0.2.3 (2022-12-01)
 ------------------
 

@@ -1,5 +1,5 @@
 """Base class to create an nbgitpuller link"""
-import urllib
+import urllib.parse
 
 import validators
 

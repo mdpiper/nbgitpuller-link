@@ -4,7 +4,7 @@ Changes: nbgitpuller-link
 0.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix incorrect urllib.parse import
 
 
 0.2.2 (2022-07-21)

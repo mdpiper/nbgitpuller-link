@@ -60,15 +60,15 @@ specifying the file to launch
 and the branch to use:
 ```bash
 nbgitpuller-link \
-    --jupyterhub-url=https://csdms.rc.colorado.edu \
-    --repository-url=https://github.com/csdms/espin \
+    --jupyterhub-url=https://lab.openearthscape.org \
+    --repository-url=https://github.com/csdms/ivy \
     --branch=main \
-    --launch-path=lessons/jupyter/index.ipynb
+    --launch-path=lessons/bmi/index.ipynb
 ```
 
 The resulting link:
 ```bash
-https://csdms.rc.colorado.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fcsdms%2Fespin&urlpath=tree%2Fespin%2Flessons%2Fjupyter%2Findex.ipynb&branch=main
+https://lab.openearthscape.org/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fcsdms%2Fivy&urlpath=tree%2Fivy%2Flessons%2Fbmi%2Findex.ipynb&branch=main
 ```
 
 ### Python
@@ -81,10 +81,10 @@ from nbgitpuller_link import Link
 Generate a link though a `Link` instance:
 ```python
 linker = Link(
-    jupyterhub_url="https://csdms.rc.colorado.edu",
-    repository_url="https://github.com/csdms/espin",
+    jupyterhub_url="https://lab.openearthscape.org",
+    repository_url="https://github.com/csdms/ivy",
     branch="main",
-    launch_path="lessons/jupyter/index.ipynb",
+    launch_path="lessons/bmi/index.ipynb",
     interface="lab",
     )
 ```
@@ -96,5 +96,5 @@ print("The nbgitpuller link is:\n{}".format(linker.link))
 ```
 ```
 The nbgitpuller link is:
-https://csdms.rc.colorado.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fcsdms%2Fespin&urlpath=lab%2Ftree%2Fespin%2Flessons%2Fjupyter%2Findex.ipynb%3Fautodecode&branch=main
+https://lab.openearthscape.org/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fcsdms%2Fivy&urlpath=lab%2Ftree%2Fivy%2Flessons%2Fbmi%2Findex.ipynb%3Fautodecode&branch=main
 ```

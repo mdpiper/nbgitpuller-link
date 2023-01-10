@@ -92,7 +92,7 @@ Note that this example uses the JupyterLab interface.
 
 The `link` property holds the URL:
 ```python
-print("The nbgitpuller link is:\n{}".format(linker.link))
+print(f"The nbgitpuller link is:\n{linker.link}")
 ```
 ```
 The nbgitpuller link is:

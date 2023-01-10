@@ -1,10 +1,10 @@
 """Example of constructing an nbgitpuller link."""
 from nbgitpuller_link import Link
 
-HUB = "https://csdms.rc.colorado.edu"
-REPO = "https://github.com/csdms/espin"
+HUB = "https://lab.openearthscape.org"
+REPO = "https://github.com/csdms/ivy"
 BRANCH = "main"
-FILE = "lessons/jupyter/index.ipynb"
+FILE = "lessons/bmi/index.ipynb"
 INTERFACE = "lab"
 
 
@@ -16,4 +16,4 @@ linker = Link(
     interface=INTERFACE,
 )
 
-print("The nbgitpuller link is:\n{}".format(linker.link))
+print(f"The nbgitpuller link is:\n{linker.link}")

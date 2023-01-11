@@ -24,6 +24,12 @@ def clean(session):
             p.unlink()
 
 
+@nox.session(python=False)
+def cleaner(session):
+    """Remove the .nox directory."""
+    shutil.rmtree(".nox", ignore_errors=True)
+
+
 @nox.session
 def test_cli(session: nox.Session) -> None:
     """Test the command line interface."""

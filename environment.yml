@@ -7,10 +7,12 @@ dependencies:
   - pip
   - click
   - validators
-  - make
   - black
   - flake8
-  - isort >=5
+  - isort
+  - nox
+  - build
+  - twine
   - pytest
   - pytest-cov
   - pytest-datadir

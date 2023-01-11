@@ -47,6 +47,10 @@ dev = [
   "isort",
   "nox",
 ]
+build = [
+  "build",
+  "twine",
+]
 testing = [
   "pytest",
   "pytest-cov",

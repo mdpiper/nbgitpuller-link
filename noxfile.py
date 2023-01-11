@@ -7,6 +7,23 @@ import nox
 PROJECT = "nbgitpuller-link"
 PACKAGE = "nbgitpuller_link"
 ROOT = pathlib.Path(__file__).parent
+PYTHON_VERSIONS = ["3.9", "3.10", "3.11"]
+
+
+@nox.session(python=PYTHON_VERSIONS)
+def test(session: nox.Session) -> None:
+    """Run the tests."""
+    session.install(".[dev,testing]")
+    args = session.posargs or ["--cov", "--cov-report=term", "-vvv"]
+    session.run("pytest", *args)
+
+
+@nox.session(name="test-cli", python=PYTHON_VERSIONS)
+def test_cli(session: nox.Session) -> None:
+    """Test the command line interface."""
+    session.install(".")
+    session.run(PROJECT, "--version")
+    session.run(PROJECT, "--help")
 
 
 @nox.session(python=False)
@@ -28,11 +45,3 @@ def clean(session):
 def cleaner(session):
     """Remove the .nox directory."""
     shutil.rmtree(".nox", ignore_errors=True)
-
-
-@nox.session(name="test-cli")
-def test_cli(session: nox.Session) -> None:
-    """Test the command line interface."""
-    session.install(".")
-    session.run(PROJECT, "--version")
-    session.run(PROJECT, "--help")

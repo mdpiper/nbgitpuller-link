@@ -38,11 +38,19 @@ def format(session: nox.Session) -> None:
     session.run("flake8", *PATHS)
 
 
+@nox.session
+def build(session: nox.Session) -> None:
+    """Build source and binary distributions."""
+    session.install(".[build]")
+    session.run("python", "-m", "build")
+    session.run("twine", "check", "dist/*")
+
+
 @nox.session(python=False)
 def clean(session):
     """Remove virtual environments, build files, and caches."""
     shutil.rmtree("build", ignore_errors=True)
-    shutil.rmtree("wheelhouse", ignore_errors=True)
+    shutil.rmtree("dist", ignore_errors=True)
     shutil.rmtree(f"{PACKAGE}.egg-info", ignore_errors=True)
     shutil.rmtree(".pytest_cache", ignore_errors=True)
     shutil.rmtree(".venv", ignore_errors=True)

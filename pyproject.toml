@@ -41,10 +41,17 @@ Repository = "https://github.com/mdpiper/nbgitpuller-link"
 Changelog = "https://github.com/mdpiper/nbgitpuller-link/blob/main/CHANGES.md"
 
 [project.optional-dependencies]
-testing = [
+dev = [
   "black",
   "flake8",
-  "isort >=5",
+  "isort",
+  "nox",
+]
+build = [
+  "build",
+  "twine",
+]
+testing = [
   "pytest",
   "pytest-cov",
   "pytest-datadir",

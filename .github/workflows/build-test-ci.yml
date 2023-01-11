@@ -4,6 +4,11 @@ on: [push, pull_request]
 
 jobs:
   build-and-test:
+
+    if:
+      github.event_name == 'push' || github.event.pull_request.head.repo.full_name !=
+      github.repository
+
     runs-on: ubuntu-latest
 
     defaults:
@@ -13,31 +18,33 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Python 3.8
+      - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
-
-      - name: Build and install package
-        run: make install
+          python-version: 3.9
 
       - name: Test
         run: |
-          pip install pytest
-          make test
+          pip install nox
+          nox -s test test-cli
 
-  lint:
+  format:
+
+    if:
+      github.event_name == 'push' || github.event.pull_request.head.repo.full_name !=
+      github.repository
+
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Python 3.8
+      - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: 3.9
 
-      - name: Lint
+      - name: Format
         run: |
-          pip install flake8
-          make lint
+          pip install nox
+          nox -s format

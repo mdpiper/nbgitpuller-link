@@ -1,8 +1,8 @@
+import os
 import pathlib
 import shutil
 from itertools import chain
 
-import os
 import nox
 
 PROJECT = "nbgitpuller-link"

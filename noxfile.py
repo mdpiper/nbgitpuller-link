@@ -30,7 +30,7 @@ def cleaner(session):
     shutil.rmtree(".nox", ignore_errors=True)
 
 
-@nox.session
+@nox.session(name="test-cli")
 def test_cli(session: nox.Session) -> None:
     """Test the command line interface."""
     session.install(".")

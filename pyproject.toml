@@ -50,6 +50,7 @@ dev = [
 build = [
   "build",
   "twine",
+  "zest.releaser"
 ]
 testing = [
   "pytest",

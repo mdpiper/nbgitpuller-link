@@ -6,14 +6,16 @@ import nox
 
 PROJECT = "nbgitpuller-link"
 PACKAGE = "nbgitpuller_link"
-ROOT = pathlib.Path(__file__).parent
+HERE = pathlib.Path(__file__)
+ROOT = HERE.parent
+PATHS = ["nbgitpuller_link", "examples", "tests", HERE.name]
 PYTHON_VERSIONS = ["3.9", "3.10", "3.11"]
 
 
 @nox.session(python=PYTHON_VERSIONS)
 def test(session: nox.Session) -> None:
     """Run the tests."""
-    session.install(".[dev,testing]")
+    session.install(".[testing]")
     args = session.posargs or ["--cov", "--cov-report=term", "-vvv"]
     session.run("pytest", *args)
 
@@ -24,6 +26,15 @@ def test_cli(session: nox.Session) -> None:
     session.install(".")
     session.run(PROJECT, "--version")
     session.run(PROJECT, "--help")
+
+
+@nox.session
+def format(session: nox.Session) -> None:
+    """Clean lint and assert style."""
+    session.install(".[dev]")
+    session.run("black", *PATHS)
+    session.run("isort", *PATHS)
+    session.run("flake8", *PATHS)
 
 
 @nox.session(python=False)

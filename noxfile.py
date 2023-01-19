@@ -98,7 +98,7 @@ def clean(session):
 
 
 @nox.session(python=False)
-def cleaner(session):
+def nuke(session):
     """Clean and also remove the .nox directory."""
     clean(session)
     shutil.rmtree(".nox", ignore_errors=True)

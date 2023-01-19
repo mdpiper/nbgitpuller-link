@@ -99,5 +99,6 @@ def clean(session):
 
 @nox.session(python=False)
 def cleaner(session):
-    """Remove the .nox directory."""
+    """Clean and also remove the .nox directory."""
+    clean(session)
     shutil.rmtree(".nox", ignore_errors=True)

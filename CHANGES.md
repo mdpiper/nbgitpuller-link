@@ -1,13 +1,13 @@
 Changes: nbgitpuller-link
 =========================
 
-## 0.2.5 (unreleased)
----------------------
+0.2.5 (unreleased)
+------------------
 
 - Nothing changed yet.
 
 
-## 0.2.4 (2023-01-11)
+0.2.4 (2023-01-11)
 ------------------
 
 - Use nox for build system management (#13)

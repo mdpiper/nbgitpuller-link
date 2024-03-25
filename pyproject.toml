@@ -103,4 +103,5 @@ relative_files = true
 
 [tool.zest-releaser]
 tag-format = "v{version}"
+history_format = "rst"
 python-file-with-version = "nbgitpuller_link/_version.py"

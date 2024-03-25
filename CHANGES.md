@@ -1,7 +1,7 @@
 Changes: nbgitpuller-link
 =========================
 
-0.2.5 (unreleased)
+0.2.5 (2024-03-25)
 ------------------
 
 - Test on Python 3.12, set minimum to 3.10 (#15)

@@ -93,7 +93,7 @@ def test_valid_result():
         ["--jupyterhub-url=https://jupyter.org", "--repository-url=https://github.com"],
     )
     assert result.exit_code == 0
-    assert validators.url(result.output)
+    assert validators.url(result.output.rstrip("\n"))
 
 
 def test_optional_interface():
@@ -154,4 +154,4 @@ def test_space_in_launch_path():
         ],
     )
     assert result.exit_code == 0
-    assert validators.url(result.output)
+    assert validators.url(result.output.rstrip("\n"))
